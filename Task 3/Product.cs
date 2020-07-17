@@ -2,6 +2,9 @@
 
 namespace Task_3
 {
+    /// <summary>
+    /// Base class for a lot of the shop's items
+    /// </summary>
     public class Product
     {
         private string name;
