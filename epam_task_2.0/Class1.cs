@@ -2,6 +2,9 @@
 
 namespace epam_task_2._0
 {
+    /// <summary>
+    /// This is a basic 3d vector
+    /// </summary>
     public class Vector3
     {
         private float x;
@@ -19,10 +22,20 @@ namespace epam_task_2._0
         public float Y { get => y; set => y = value; }
         public float Z { get => z; set => z = value; }
 
-        //unary
-        public static Vector3 operator +(Vector3 a) => new Vector3(a.X, a.Y, a.Z);
+        /// <summary>
+        /// This is unary operator -. Used for making vector coords nagative nubmers
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns>-Vector</returns>
         public static Vector3 operator -(Vector3 a) => new Vector3(-a.X, -a.Y, -a.Z);
+
+        /// <summary>
+        /// This is unary operator ++. Used for increment
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static Vector3 operator ++(Vector3 a) => new Vector3(++a.X, ++a.Y, ++a.Z);
+
         public static Vector3 operator --(Vector3 a) => new Vector3(--a.X, --a.Y, --a.Z);
 
         //binary with vectors
