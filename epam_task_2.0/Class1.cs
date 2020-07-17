@@ -33,15 +33,38 @@ namespace epam_task_2._0
         /// This is unary operator ++. Used for increment
         /// </summary>
         /// <param name="a"></param>
-        /// <returns></returns>
+        /// <returns>++Vector</returns>
         public static Vector3 operator ++(Vector3 a) => new Vector3(++a.X, ++a.Y, ++a.Z);
 
+        /// <summary>
+        /// This is unary operator --. Used for decrement
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns>--Vector</returns>
         public static Vector3 operator --(Vector3 a) => new Vector3(--a.X, --a.Y, --a.Z);
 
-        //binary with vectors
+        /// <summary>
+        /// This is binary operator. Used for addition.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns>Vector(a + b)</returns>
         public static Vector3 operator +(Vector3 a, Vector3 b) => new Vector3(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
+
+        /// <summary>
+        /// This is binary operator. Used for multiplication.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns>Vector(a * b)</returns>
         public static Vector3 operator *(Vector3 a, Vector3 b) => new Vector3(a.X * b.X, a.Y * b.Y, a.Z * b.Z);
 
+        /// <summary>
+        /// This is binary operator. Used for division.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns>Vector(a / b)</returns>
         public static Vector3 operator /(Vector3 a, Vector3 b)
         {
             float x;
@@ -61,11 +84,28 @@ namespace epam_task_2._0
             return new Vector3(x, y, z);
         }
 
-        //binary with float and vector
-        public static Vector3 operator %(Vector3 a, float b) => new Vector3(a.X % b, a.Y % b, a.Z % b);
+        /// <summary>
+        /// This is binary operator. Used for addition any vector with a float.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns>Vector(a) - b</returns>
         public static Vector3 operator +(Vector3 a, float b) => new Vector3(a.X + b, a.Y + b, a.Z + b);
+
+        /// <summary>
+        /// This is binary operator. Used for multiplication any vector with a float.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns>Vector(a) * b</returns>
         public static Vector3 operator *(Vector3 a, float b) => new Vector3(a.X * b, a.Y * b, a.Z * b);
 
+        /// <summary>
+        /// This is binary operator. Used for division any vector with a float.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns>Vector(a) / b</returns>
         public static Vector3 operator /(Vector3 a, float b)
         {
             float x;
@@ -86,10 +126,28 @@ namespace epam_task_2._0
             return new Vector3(x, y, z);
         }
 
-        public static Vector3 operator %(float b, Vector3 a) => a % b;
+        /// <summary>
+        /// Same as an addition any vector with a float.
+        /// </summary>
+        /// <param name="b"></param>
+        /// <param name="a"></param>
+        /// <returns>Vector(a) + b</returns>
         public static Vector3 operator +(float b, Vector3 a) => a + b;
+
+        /// <summary>
+        /// Same as a multiplication any vector with a float.
+        /// </summary>
+        /// <param name="b"></param>
+        /// <param name="a"></param>
+        /// <returns>Vector(a) * b</returns>
         public static Vector3 operator *(float b, Vector3 a) => a * b;
 
+        /// <summary>
+        /// Same a division any vector with a float.
+        /// </summary>
+        /// <param name="b"></param>
+        /// <param name="a"></param>
+        /// <returns>Vector(a) / b</returns>
         public static Vector3 operator /(float b, Vector3 a) => a / b;
     }
 }
