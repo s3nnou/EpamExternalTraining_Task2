@@ -400,7 +400,7 @@ namespace Task3_Test
 
 
             string ex_name = "Ihone X - Xiaomi Redmi 3s";
-            float ex_price = 752.5f;
+            float ex_price = 770f;
             string ex_type = "phone";
             Technic technicExpected = new Technic(ex_name, ex_type, ex_price);
 
