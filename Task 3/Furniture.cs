@@ -66,5 +66,31 @@ namespace Task_3
         {
             return a.Price;
         }
+
+        /// <summary>
+        /// Used for comparing two objects
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>If two items are equal - true, else - false</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj is Furniture)
+            {
+                Furniture furniture = obj as Furniture;
+
+                if (this.Name == furniture.Name && this.Price == furniture.Price && this.Type == furniture.Type)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

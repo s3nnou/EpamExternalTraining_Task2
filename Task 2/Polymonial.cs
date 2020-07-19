@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Task_2
 {
@@ -16,7 +17,7 @@ namespace Task_2
             get => members[index];
         }
 
-        Polymonial(params float[] args)
+        public Polymonial(params float[] args)
         {
             if (args.Length > 0)
             {
@@ -25,7 +26,7 @@ namespace Task_2
             }
             else
             {
-                throw new Exception("Test");
+                throw new Exception("Such poly cannot exists");
             }
         }
 
@@ -128,7 +129,7 @@ namespace Task_2
                 {
                     if (i < b.degree)
                     {
-                        newPoly[i] = a[i] + b[i];
+                        newPoly[i] = a[i] - b[i];
                     }
                     else
                     {
@@ -146,7 +147,7 @@ namespace Task_2
                 {
                     if (i < a.degree)
                     {
-                        newPoly[i] = a[i] + b[i];
+                        newPoly[i] = a[i] - b[i];
                     }
                     else
                     {
@@ -162,7 +163,7 @@ namespace Task_2
 
                 for (int i = 0; i < b.degree; i++)
                 {
-                    newPoly[i] = a[i] + b[i];
+                    newPoly[i] = a[i] - b[i];
                 }
 
                 return new Polymonial(newPoly);
@@ -183,14 +184,8 @@ namespace Task_2
             {
                 for(int j = 0; j < b.degree; j++)
                 {
-                    if (newPoly[i + j] != 0)
-                    {
-                        newPoly[i + j] = a[i] * b[j];
-                    }
-                    else
-                    {
-                        newPoly[i + j] += a[i] * b[j];
-                    }
+                    newPoly[i + j] += a[i] * b[j];
+
                 }
             }
 
@@ -206,7 +201,7 @@ namespace Task_2
         /// <returns>Vector(a) + b</returns>
         public static Polymonial operator +(Polymonial a, float b)
         {
-            float[] newPoly = new float[a.degree];
+            float[] newPoly = a.members;
 
             newPoly[0] += b;
 
@@ -232,7 +227,7 @@ namespace Task_2
         /// <returns> Poly(a) - b</returns>
         public static Polymonial operator -(Polymonial a, float b)
         {
-            float[] newPoly = new float[a.degree];
+            float[] newPoly = a.members;
 
             newPoly[0] -= b;
 
@@ -258,7 +253,7 @@ namespace Task_2
         /// <returns>Poly(a) * b</returns>
         public static Polymonial operator *(Polymonial a, float b)
         {
-            float[] newPoly = new float[a.degree];
+            float[] newPoly = a.members;
 
             for (int i = 0; i < a.degree; i++)
             {
@@ -288,26 +283,48 @@ namespace Task_2
         /// <returns>Poly(a) / b </returns>
         public static Polymonial operator /(Polymonial a, float b)
         {
-            float[] newPoly = new float[a.degree];
+            float[] newPoly = a.members;
 
-            for (int i = 0; i < a.degree; i++)
+            if(b != 0)
             {
-                newPoly[i] = a[i] / b;
+                for (int i = 0; i < a.degree; i++)
+                {
+                    newPoly[i] = a[i] / b;
 
+                }
+            }
+            else
+            {
+                throw new DivideByZeroException();
             }
 
             return new Polymonial(newPoly);
         }
 
         /// <summary>
-        /// Same as a division for any poly with a float.
+        /// Used for comparing two objects
         /// </summary>
-        /// <param name="b"></param>
-        /// <param name="a"></param>
-        /// <returns></returns>
-        public static Polymonial operator /(float b, Polymonial a)
+        /// <param name="obj"></param>
+        /// <returns>If two items are equal - true, else - false</returns>
+        public override bool Equals(object obj)
         {
-            return a / b;
+            if (obj is Polymonial)
+            {
+                Polymonial polymonial = obj as Polymonial;
+
+                if (Enumerable.SequenceEqual(this.members, polymonial.members))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

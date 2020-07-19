@@ -67,5 +67,31 @@ namespace Task_3
         {
             return  a.Price;
         }
+
+        /// <summary>
+        /// Used for comparing two objects
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>If two items are equal - true, else - false</returns>
+        public override bool Equals(object obj)
+        {
+            if(obj is Chemical)
+            {
+                Chemical chemical = obj as Chemical;
+
+                if(this.Name == chemical.Name && this.Price == chemical.Price && this.Type == chemical.Type)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
