@@ -78,17 +78,17 @@ namespace epam_task_2._0
             float x;
             float y;
             float z;
-            try
+            if(b.x != 0 && b.y != 0 && b.z != 0)
             {
                 x = a.X / b.X;
                 y = a.Y / b.Y;
                 z = a.Z / b.Z;
             }
-            catch(DivideByZeroException e)
+            else
             {
-                throw e;
+                throw new Exception();
             }
-
+      
             return new Vector3(x, y, z);
         }
 
@@ -114,15 +114,15 @@ namespace epam_task_2._0
             float y;
             float z;
 
-            try
+            if (b != 0)
             {
                 x = a.X / b;
                 y = a.Y / b;
                 z = a.Z / b;
             }
-            catch (DivideByZeroException e)
+            else
             {
-                throw e;
+                throw new Exception();
             }
 
             return new Vector3(x, y, z);
