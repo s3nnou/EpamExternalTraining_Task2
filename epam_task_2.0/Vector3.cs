@@ -143,5 +143,26 @@ namespace epam_task_2._0
         /// <param name="a"></param>
         /// <returns>Vector(a) / b</returns>
         public static Vector3 operator /(float b, Vector3 a) => a / b;
+
+        public override bool Equals(object obj)
+        {
+            if(obj is Vector3)
+            {
+                Vector3 vector3 = obj as Vector3;
+
+                if ((x == vector3.x) && (y == vector3.y) && (z == vector3.z))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

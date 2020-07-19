@@ -16,7 +16,7 @@ namespace Task_3
         /// </summary>
         /// <param name="a"></param>
         /// <param name="b"></param>
-        /// <returns>new same class item object</returns>
+        /// <returns>new same class item object</returns> 
         public static Food operator +(Food a, Food b)
         {
             return new Food(a.Name + " - " + b.Name, a.Type, (a.Price + b.Price) / 2);
