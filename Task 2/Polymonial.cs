@@ -11,7 +11,6 @@ namespace Task_2
         private float[] members;
         private int degree;
 
-
         public float this[int index]
         {
             get => members[index];
@@ -325,6 +324,15 @@ namespace Task_2
             {
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Returns HashCode of the object
+        /// </summary>
+        /// <returns>hashcode</returns>
+        public override int GetHashCode()
+        {
+            return (members.GetHashCode() ^ degree.GetHashCode());
         }
     }
 }

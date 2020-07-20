@@ -78,7 +78,7 @@ namespace epam_task_2._0
             float x;
             float y;
             float z;
-            if(b.x != 0 && b.y != 0 && b.z != 0)
+            if (b.x != 0 && b.y != 0 && b.z != 0)
             {
                 x = a.X / b.X;
                 y = a.Y / b.Y;
@@ -88,11 +88,9 @@ namespace epam_task_2._0
             {
                 throw new Exception();
             }
-      
+
             return new Vector3(x, y, z);
         }
-
-     
 
         /// <summary>
         /// This is binary operator. Used for multiplication any vector with a float.
@@ -151,7 +149,7 @@ namespace epam_task_2._0
         /// <returns>If two items are equal - true, else - false</returns>
         public override bool Equals(object obj)
         {
-            if(obj is Vector3)
+            if (obj is Vector3)
             {
                 Vector3 vector3 = obj as Vector3;
 
@@ -168,6 +166,15 @@ namespace epam_task_2._0
             {
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Returns HashCode of the object
+        /// </summary>
+        /// <returns>hashcode</returns>
+        public override int GetHashCode()
+        {
+            return (x.GetHashCode() ^ y.GetHashCode() ^ z.GetHashCode());
         }
     }
 }

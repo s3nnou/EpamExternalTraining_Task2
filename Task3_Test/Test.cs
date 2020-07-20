@@ -5,7 +5,7 @@ using Task_3;
 namespace Task3_Test
 {
     [TestClass]
-    public class UnitTest1
+    public class Test
     {
         [TestMethod]
         public void ChemicalCreation()

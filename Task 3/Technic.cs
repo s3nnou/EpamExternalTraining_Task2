@@ -93,5 +93,13 @@ namespace Task_3
             }
         }
 
+        /// <summary>
+        /// Returns HashCode of the object
+        /// </summary>
+        /// <returns>hashcode</returns>
+        public override int GetHashCode()
+        {
+            return (Type.GetHashCode() ^ Price.GetHashCode() ^ Name.GetHashCode());
+        }
     }
 }

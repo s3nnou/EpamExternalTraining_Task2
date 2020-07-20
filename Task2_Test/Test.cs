@@ -5,7 +5,7 @@ using Task_2;
 namespace Task2_Test
 {
     [TestClass]
-    public class UnitTest1
+    public class Test
     {
         [TestMethod]
         public void PolyPositiveIntoNegative1()
