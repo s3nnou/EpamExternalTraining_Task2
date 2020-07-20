@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Task_3
+﻿namespace Task_3
 {
     /// <summary>
     /// Base class for a lot of the shop's items

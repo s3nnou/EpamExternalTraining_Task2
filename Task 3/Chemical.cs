@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Task_3
+﻿namespace Task_3
 {
     public class Chemical:Product
     {

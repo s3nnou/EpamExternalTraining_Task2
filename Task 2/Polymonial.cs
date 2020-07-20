@@ -191,7 +191,6 @@ namespace Task_2
             return new Polymonial(newPoly);
         }
 
-
         /// <summary>
         /// Same as an addition any poly with a float.
         /// </summary>
